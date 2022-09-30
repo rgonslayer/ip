@@ -33,14 +33,9 @@ jobs:
       - name: Build and check with Gradle
         run: ./gradlew check
       
+      - name: Install dependencies, run tests, and collect coverage
+        run: gradle build      
+      
       - name: Codecov
         uses: codecov/codecov-action@v3.1.1
-        
-      - name: Upload coverage reports to Codecov
-        run: |
-        # Replace `linux` below with the appropriate OS
-        # Options are `alpine`, `linux`, `macos`, `windows`
-          curl -Os https://uploader.codecov.io/latest/macos/codecov
-          chmod +x codecov
-          ./codecov
 
